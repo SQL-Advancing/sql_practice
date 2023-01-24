@@ -1,2 +1,2 @@
-# sql_practice-.gitkeep
+# sql_practice
 Conceptual SQL practice problems. 
