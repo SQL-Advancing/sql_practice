@@ -1,33 +1,57 @@
+#Query Correct
 SELECT *
 FROM EmpSalary 
 ORDER BY Tenure DESC;
 
+#Query Not Correct 
+#We do not need to group by Emp_ID since we want the average across all team members. 
+#The output of your query would average each members own salary with it's self instead of the average across all team members 
+#Mathematically (50000 + 80000 + 50000 + 85000 + 70000)/5 is what we are looking for so the AVG() function takes care of that 
 2. 
 SELECT Emp_id, ROUND(AVG(Annual_salary),1) as avg_sal
 FROM EmpSalary
 GROUP BY emp_id;
 
+#Corrected Query 
+2.
+SELECT ROUND(AVG(Annual_salary),1) as avg_sal
+FROM EmpSalary;
+
+#Query Correct 
 3. 
 SELECT *
 FROM EmpSalary
 WHERE Age > 30
 ORDER BY Age DESC;
 
+#Query Not Correct 
+#We want to find the monthly salary. This means we need to take the annual salary and divide it by 12
+#mathematically we are taking each persons salary amount and dividing it by 12 and making that a new column monthly_salary 
+#we do not need to aggregate since we are performing an operation across columns. 
 4. 
 SELECT Emp_id, Emp_name, ROUND(annual_salary,2) as salary
 FROM EmpSalary
 ;
 
+#corrected Query 
+select 
+Emp_id, Emp_name, round(annual_salary/12, 2) as monthly_salary 
+from EmpSalary;
+
+#Query Correct 
 5. 
 SELECT emp_id, emp_name, annual_salary,
 ROUND(annual_salary * 0.05,0) as bonus 
 FROM EmpSalary;
 
+#Query correct 
 6.
 SELECT emp_id, emp_name, annual_salary
 FROM EmpSalary
 WHERE emp_name LIKE ‘Tom%';
 
+#Query correct
+#order by tenure not needed 
 7. 
 SELECT  tenure, ROUND(AVG(annual_salary),0) as avg_salary
 FROM EmpSalary
