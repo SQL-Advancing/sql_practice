@@ -1,0 +1,35 @@
+SELECT *
+FROM EmpSalary 
+ORDER BY Tenure DESC;
+
+2. 
+SELECT Emp_id, ROUND(AVG(Annual_salary),1) as avg_sal
+FROM EmpSalary
+GROUP BY emp_id;
+
+3. 
+SELECT *
+FROM EmpSalary
+WHERE Age > 30
+ORDER BY Age DESC;
+
+4. 
+SELECT Emp_id, Emp_name, ROUND(annual_salary,2) as salary
+FROM EmpSalary
+;
+
+5. 
+SELECT emp_id, emp_name, annual_salary,
+ROUND(annual_salary * 0.05,0) as bonus 
+FROM EmpSalary;
+
+6.
+SELECT emp_id, emp_name, annual_salary
+FROM EmpSalary
+WHERE emp_name LIKE ‘Tom%';
+
+7. 
+SELECT  tenure, ROUND(AVG(annual_salary),0) as avg_salary
+FROM EmpSalary
+GROUP BY tenure
+ORDER BY tenure;
